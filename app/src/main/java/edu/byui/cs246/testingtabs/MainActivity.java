@@ -1,6 +1,7 @@
 package edu.byui.cs246.testingtabs;
 
 import android.app.ActionBar;
+import android.app.FragmentTransaction;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
@@ -21,7 +22,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity{
@@ -42,7 +45,7 @@ public class MainActivity extends AppCompatActivity{
          */
         private ViewPager mViewPager;
         Button button;
-
+        public void tryMe(){}
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -103,7 +106,7 @@ public class MainActivity extends AppCompatActivity{
             SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
             adapter.addFrag(MyFragment.newInstance(), "TAB 1");
             adapter.addFrag(PlaceholderFragment.newInstance(7), "Tab2");
-            adapter.addFrag(MyFragment.newInstance(), "kart");
+            adapter.addFrag(PlaceholderFragment.newInstance(3), "kart");
            // adapter.addFrag(new CoordinatorFragment(), "Coordinator Layout");
             viewPager.setAdapter(adapter);
         }
@@ -182,5 +185,35 @@ public class MainActivity extends AppCompatActivity{
             }
         }
 
+    public void replaceFragment(View v) {
 
+        String label1;
+        FragmentManager fm;
+        FragmentTransaction ft;
+        int id = v.getId();
+
+        switch (id) {
+            case R.id.button:
+                label1 = "Home";
+                Fragment f3 = HomePage.newInstance();
+
+                fm = getFragmentManager();
+                ft = fm.beginTransaction();
+                ft.replace(android.R.id.content, f3, label1);
+                ft.commit();
+
+//                it = fragList.iterator();
+//                while (it.hasNext()) {
+//                    WeakReference<android.app.Fragment> ref = it.next();
+//                    android.app.Fragment f = ref.get();
+//                    if (f instanceof Tab1Fragment) {
+//                        it.remove();
+//                    }
+//                }
+
+                break;
+
+            default:
+                break;
+        }
 }
