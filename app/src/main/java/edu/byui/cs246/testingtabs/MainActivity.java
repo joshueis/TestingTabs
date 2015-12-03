@@ -1,13 +1,14 @@
 package edu.byui.cs246.testingtabs;
 
 import android.app.ActionBar;
-import android.app.FragmentTransaction;
+
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -188,7 +189,7 @@ public class MainActivity extends AppCompatActivity{
     public void replaceFragment(View v) {
 
         String label1;
-        FragmentManager fm;
+
         FragmentTransaction ft;
         int id = v.getId();
 
@@ -196,9 +197,7 @@ public class MainActivity extends AppCompatActivity{
             case R.id.button:
                 label1 = "Home";
                 Fragment f3 = HomePage.newInstance();
-
-                fm = getFragmentManager();
-                ft = fm.beginTransaction();
+                ft = getSupportFragmentManager().beginTransaction();
                 ft.replace(android.R.id.content, f3, label1);
                 ft.commit();
 
@@ -215,5 +214,7 @@ public class MainActivity extends AppCompatActivity{
 
             default:
                 break;
+
         }
+    }
 }

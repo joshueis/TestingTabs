@@ -27,24 +27,26 @@ public class MyFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              final Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.my_fragment, container, false);
-        ClickMe = (Button) rootView.findViewById(R.id.button);
-        tv = (TextView) rootView.findViewById(R.id.textView2);
-        ClickMe.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                tv.setText("Hello wold from my Fragment");
+//        ClickMe = (Button) rootView.findViewById(R.id.button);
+//        tv = (TextView) rootView.findViewById(R.id.textView2);
+//        ClickMe.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                tv.setText("Hello wold from my Fragment");
+//
+//                Intent i = new Intent(Intent.ACTION_SEND);
+//                i.setType("message/rfc822");
+//                i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"recipient@example.com"});
+//                i.putExtra(Intent.EXTRA_SUBJECT, "Order");
+//                i.putExtra(Intent.EXTRA_TEXT, "body of email");
+//                try {
+//                    startActivity(Intent.createChooser(i, "Send mail..."));
+//                }
+//                catch (android.content.ActivityNotFoundException ex) {
+//                    Toast.makeText(getContext(), "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+//                }
+//
 
-                Intent i = new Intent(Intent.ACTION_SEND);
-                i.setType("message/rfc822");
-                i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"recipient@example.com"});
-                i.putExtra(Intent.EXTRA_SUBJECT, "Order");
-                i.putExtra(Intent.EXTRA_TEXT, "body of email");
-                try {
-                    startActivity(Intent.createChooser(i, "Send mail..."));
-                }
-                catch (android.content.ActivityNotFoundException ex) {
-                    Toast.makeText(getContext(), "There are no email clients installed.", Toast.LENGTH_SHORT).show();
-                }
                // View v = view.getRootView();
               //  v = inflater.inflate(R.layout.fragment_main, container, false);
 //                PlaceholderFragment testing = new PlaceholderFragment().newInstance(3);
@@ -54,8 +56,8 @@ public class MyFragment extends Fragment{
 ////                ft.add(testing,"my_attempt");
 //                ft.addToBackStack(null);
 //                ft.commit();
-            }
-        });
+            //}
+//        });
         return rootView;
     }
 } // This is the end of our MyFragments Class
